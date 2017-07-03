@@ -84,330 +84,331 @@
 <a name="references"></a>
 ## 引用
 
-  - [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；不要使用 `var`。eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
+- [2.1](#2.1) <a name='2.1'></a> 对所有的引用使用 `const` ；不要使用 `var`。eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
 
 
-  > 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
+> 为什么？这能确保你无法对引用重新赋值，也不会导致出现 bug 或难以理解。
 
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
+```javascript
+// bad
+var a = 1;
+var b = 2;
 
-    // good
-    const a = 1;
-    const b = 2;
-    ```
+// good
+const a = 1;
+const b = 2;
+```
 
-  - [2.2](#2.2) <a name='2.2'></a> 如果你一定需要可变动的引用，使用 `let` 代替 `var`。 eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
+- [2.2](#2.2) <a name='2.2'></a> 如果你一定需要可变动的引用，使用 `let` 代替 `var`。 eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
 
-  > 为什么？因为  `let` 是块级作用域，而 `var` 是函数作用域。
+> 为什么？因为  `let` 是块级作用域，而 `var` 是函数作用域。
 
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
+```javascript
+// bad
+var count = 1;
+if (true) {
+    count += 1;
+}
 
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+// good, use the let.
+let count = 1;
+if (true) {
+    count += 1;
+}
+```
 
-  - [2.3](#2.3) <a name='2.3'></a> 注意 `let` 和 `const` 都是块级作用域。
+- [2.3](#2.3) <a name='2.3'></a> 注意 `let` 和 `const` 都是块级作用域。
 
-    ```javascript
-    // const 和 let 只存在于它们被定义的区块内。
-    {
-      let a = 1;
-      const b = 1;
-    }
-    console.log(a); // ReferenceError
-    console.log(b); // ReferenceError
-    ```
+```javascript
+// const 和 let 只存在于它们被定义的区块内。
+{
+    let a = 1;
+    const b = 1;
+}
+console.log(a); // ReferenceError
+console.log(b); // ReferenceError
+```
 
 **[⬆ 返回目录](#table-of-contents)**
 
 <a name="objects"></a>
 ## 对象
 
-  - [3.1](#3.1) <a name='3.1'></a> 使用字面值创建对象。eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+- [3.1](#3.1) <a name='3.1'></a> 使用字面值创建对象。eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
 
-    ```javascript
-    // bad
-    const item = new Object();
+```javascript
+// bad
+const item = new Object();
 
-    // good
-    const item = {};
-    ```
+// good
+const item = {};
+```
 
 
-  <a name="es6-computed-properties"></a>
-  - [3.2](#3.2) <a name='3.2'></a> 创建有动态属性名的对象时，使用可被计算的属性名称。
+<a name="es6-computed-properties"></a>
+- [3.2](#3.2) <a name='3.2'></a> 创建有动态属性名的对象时，使用可被计算的属性名称。
 
-  > 为什么？因为这样可以让你在一个地方定义所有的对象属性。
+> 为什么？因为这样可以让你在一个地方定义所有的对象属性。
 
-    ```javascript
-    function getKey(k) {
-      return `a key named ${k}`;
-    }
+```javascript
+function getKey(k) {
+    return `a key named ${k}`;
+}
 
-    // bad
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-    };
-    obj[getKey('enabled')] = true;
+// bad
+const obj = {
+    id: 5,
+    name: 'San Francisco',
+};
+obj[getKey('enabled')] = true;
 
-    // good
-    const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
-    };
-    ```
+// good
+const obj = {
+    id: 5,
+    name: 'San Francisco',
+    [getKey('enabled')]: true,
+};
+```
 
-  <a name="es6-object-shorthand"></a>
-  - [3.3](#3.3) <a name='3.5'></a> 使用对象方法的简写。
+<a name="es6-object-shorthand"></a>
+- [3.3](#3.3) <a name='3.5'></a> 使用对象方法的简写。
 
-    ```javascript
-    // bad
-    const atom = {
-      value: 1,
+```javascript
+// bad
+const atom = {
+    value: 1,
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
-    };
+    addValue: function (value) {
+    return atom.value + value;
+    },
+};
 
-    // good
-    const atom = {
-      value: 1,
+// good
+const atom = {
+    value: 1,
 
-      addValue(value) {
-        return atom.value + value;
-      },
-    };
-    ```
+    addValue(value) {
+    return atom.value + value;
+    },
+};
+```
 
-  <a name="es6-object-concise"></a>
-  - [3.4](#3.4) <a name='3.6'></a> 使用对象属性值的简写。eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
+<a name="es6-object-concise"></a>
+- [3.4](#3.4) <a name='3.6'></a> 使用对象属性值的简写。eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
-  > 为什么？因为这样更短更有描述性。
+> 为什么？因为这样更短更有描述性。
 
-    ```javascript
-    const lukeSkywalker = 'Luke Skywalker';
+```javascript
+const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
-    const obj = {
-      lukeSkywalker: lukeSkywalker,
-    };
+// bad
+const obj = {
+    lukeSkywalker: lukeSkywalker,
+};
 
-    // good
-    const obj = {
-      lukeSkywalker,
-    };
-    ```
+// good
+const obj = {
+    lukeSkywalker,
+};
+```
 
-  - [3.5](#3.5) <a name='3.7'></a> 在对象属性声明前把简写的属性分组。
+- [3.5](#3.5) <a name='3.7'></a> 在对象属性声明前把简写的属性分组。
 
-  > 为什么？因为这样能清楚地看出哪些属性使用了简写。
+> 为什么？因为这样能清楚地看出哪些属性使用了简写。
 
-    ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
+```javascript
+const anakinSkywalker = 'Anakin Skywalker';
+const lukeSkywalker = 'Luke Skywalker';
 
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
+// bad
+const obj = {
+    episodeOne: 1,
+    twoJedisWalkIntoACantina: 2,
+    lukeSkywalker,
+    episodeThree: 3,
+    mayTheFourth: 4,
+    anakinSkywalker,
+};
 
-    // good
-    const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJedisWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
-    };
-    ```
+// good
+const obj = {
+    lukeSkywalker,
+    anakinSkywalker,
+    episodeOne: 1,
+    twoJedisWalkIntoACantina: 2,
+    episodeThree: 3,
+    mayTheFourth: 4,
+};
+```
 
-    
-    - [3.6](#3.6) <a name="3.6"></a> 仅在对象属性有特殊符号时使用引号包裹。 eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-      > 为什么？ 这样看上去更加易读，另外还能有相关的代码高亮，也容易被许多JS引擎优化。
+- [3.6](#3.6) <a name="3.6"></a> 仅在对象属性有特殊符号时使用引号包裹。 eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
-      ```javascript
-      // bad
-      const bad = {
-        'foo': 3,
-        'bar': 4,
-        'data-blah': 5,
-      };
+> 为什么？ 这样看上去更加易读，另外还能有相关的代码高亮，也容易被许多JS引擎优化。
 
-      // good
-      const good = {
-        foo: 3,
-        bar: 4,
-        'data-blah': 5,
-      };
-      ```
+```javascript
+// bad
+const bad = {
+'foo': 3,
+'bar': 4,
+'data-blah': 5,
+};
 
-    <a name="objects--prototype-builtins"></a>
-    - [3.7](#objects--prototype-builtins) 不要直接使用`Object.prototype`相关语法，如 `hasOwnProperty`, `propertyIsEnumerable`, 和 `isPrototypeOf`.
+// good
+const good = {
+foo: 3,
+bar: 4,
+'data-blah': 5,
+};
+```
 
-      > 为什么？ 这些方法有可能被属性覆盖 - 如 `{ hasOwnProperty: false }` - 或者，对象可能是个空对象(`Object.create(null)`).
+<a name="objects--prototype-builtins"></a>
+- [3.7](#objects--prototype-builtins) 不要直接使用`Object.prototype`相关语法，如 `hasOwnProperty`, `propertyIsEnumerable`, 和 `isPrototypeOf`.
 
-      ```javascript
-      // bad
-      console.log(object.hasOwnProperty(key));
+> 为什么？ 这些方法有可能被属性覆盖 - 如 `{ hasOwnProperty: false }` - 或者，对象可能是个空对象(`Object.create(null)`).
 
-      // good
-      console.log(Object.prototype.hasOwnProperty.call(object, key));
+```javascript
+// bad
+console.log(object.hasOwnProperty(key));
 
-      // best
-      const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-      /* or */
-      import has from 'has';
-      // ...
-      console.log(has.call(object, key));
-      ```
+// good
+console.log(Object.prototype.hasOwnProperty.call(object, key));
 
-    <a name="objects--rest-spread"></a>
-    - [3.8](#objects--rest-spread) 在浅拷贝时，推荐使用对象展开运算符而不是[`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)。在对象解构时，使用对象的剩余运算符来获得一个新对象。
+// best
+const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+/* or */
+import has from 'has';
+// ...
+console.log(has.call(object, key));
+```
 
-      ```javascript
-      // very bad
-      const original = { a: 1, b: 2 };
-      const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
-      delete copy.a; // so does this
+<a name="objects--rest-spread"></a>
+- [3.8](#objects--rest-spread) 在浅拷贝时，推荐使用对象展开运算符而不是[`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)。在对象解构时，使用对象的剩余运算符来获得一个新对象。
 
-      // bad
-      const original = { a: 1, b: 2 };
-      const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+```javascript
+// very bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+delete copy.a; // so does this
 
-      // good
-      const original = { a: 1, b: 2 };
-      const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+// bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
 
-      const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
-      ```
+// good
+const original = { a: 1, b: 2 };
+const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+
+```
 
 **[⬆ 返回目录](#table-of-contents)**
 
 <a name="arrays"></a>
 ## 数组
 
-  - [4.1](#4.1) <a name='4.1'></a> 使用字面值创建数组。eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+- [4.1](#4.1) <a name='4.1'></a> 使用字面值创建数组。eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
 
-    ```javascript
-    // bad
-    const items = new Array();
+```javascript
+// bad
+const items = new Array();
 
-    // good
-    const items = [];
-    ```
+// good
+const items = [];
+```
 
-  - [4.2](#4.2) <a name='4.2'></a> 向数组添加元素时使用 Arrary#push 替代直接赋值。
+- [4.2](#4.2) <a name='4.2'></a> 向数组添加元素时使用 Arrary#push 替代直接赋值。
 
-    ```javascript
-    const someStack = [];
+```javascript
+const someStack = [];
 
+// bad
+someStack[someStack.length] = 'abracadabra';
 
-    // bad
-    someStack[someStack.length] = 'abracadabra';
+// good
+someStack.push('abracadabra');
+```
 
-    // good
-    someStack.push('abracadabra');
-    ```
+<a name="es6-array-spreads"></a>
+- [4.3](#4.3) <a name='4.3'></a> 使用拓展运算符 `...` 复制数组。
 
-  <a name="es6-array-spreads"></a>
-  - [4.3](#4.3) <a name='4.3'></a> 使用拓展运算符 `...` 复制数组。
+```javascript
+// bad
+const len = items.length;
+const itemsCopy = [];
+let i;
 
-    ```javascript
-    // bad
-    const len = items.length;
-    const itemsCopy = [];
-    let i;
+for (i = 0; i < len; i++) {
+    itemsCopy[i] = items[i];
+}
 
-    for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+// good
+const itemsCopy = [...items];
+
+```
+
+- [4.4](#4.4) <a name='4.4'></a> 使用 Array.from 把一个类数组对象转换成数组。
+
+```javascript
+const foo = document.querySelectorAll('.foo');
+const nodes = Array.from(foo);
+```
+
+<a name="arrays--callback-return"></a><a name="4.5"></a>
+
+- [4.5](#arrays--callback-return) 数组的相关方法使用return语句。如果函数体仅由一个带表达式且无副作用的语句组成，可以忽略return。参考[8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+
+```javascript
+// good
+[1, 2, 3].map((x) => {
+    const y = x + 1;
+    return x * y;
+});
+
+// good
+[1, 2, 3].map(x => x + 1);
+
+// bad
+const flat = {};
+[[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+    const flatten = memo.concat(item);
+    flat[index] = flatten;
+});
+
+// good
+const flat = {};
+[[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
+    const flatten = memo.concat(item);
+    flat[index] = flatten;
+    return flatten;
+});
+
+// bad
+inbox.filter((msg) => {
+    const { subject, author } = msg;
+    if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+    } else {
+    return false;
+    }
+});
+
+// good
+inbox.filter((msg) => {
+    const { subject, author } = msg;
+    if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
     }
 
-    // good
-    const itemsCopy = [...items];
-
-    ```
-
-  - [4.4](#4.4) <a name='4.4'></a> 使用 Array.from 把一个类数组对象转换成数组。
-
-    ```javascript
-    const foo = document.querySelectorAll('.foo');
-    const nodes = Array.from(foo);
-    ```
-
-  <a name="arrays--callback-return"></a><a name="4.5"></a>
-  - [4.5](#arrays--callback-return) 数组的相关方法使用return语句。如果函数体仅由一个带表达式且无副作用的语句组成，可以忽略return。参考[8.2](#arrows--implicit-return). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
-
-    ```javascript
-    // good
-    [1, 2, 3].map((x) => {
-      const y = x + 1;
-      return x * y;
-    });
-
-    // good
-    [1, 2, 3].map(x => x + 1);
-
-    // bad
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = flatten;
-    });
-
-    // good
-    const flat = {};
-    [[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) => {
-      const flatten = memo.concat(item);
-      flat[index] = flatten;
-      return flatten;
-    });
-
-    // bad
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      } else {
-        return false;
-      }
-    });
-
-    // good
-    inbox.filter((msg) => {
-      const { subject, author } = msg;
-      if (subject === 'Mockingbird') {
-        return author === 'Harper Lee';
-      }
-
-      return false;
-    });
-    ```
+    return false;
+});
+```
 
 **[⬆ 返回目录](#table-of-contents)**
 
 <a name="arrays--bracket-newline"></a>
-  - [4.6](#arrays--bracket-newline) 如果数组有多行，在数组括号起始和结束位置使用换行。
+- [4.6](#arrays--bracket-newline) 如果数组有多行，在数组括号起始和结束位置使用换行。
 
   ```javascript
   // bad
@@ -450,67 +451,67 @@
 
 ## 解构
 
-  - [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
+- [5.1](#5.1) <a name='5.1'></a> 使用解构存取和使用多属性对象。jscs: [`requireObjectDestructuring`](http://jscs.info/rule/requireObjectDestructuring)
 
-  > 为什么？因为解构能减少临时引用属性。
+> 为什么？因为解构能减少临时引用属性。
 
-    ```javascript
-    // bad
-    function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+```javascript
+// bad
+function getFullName(user) {
+    const firstName = user.firstName;
+    const lastName = user.lastName;
 
-      return `${firstName} ${lastName}`;
-    }
+    return `${firstName} ${lastName}`;
+}
 
-    // good
-    function getFullName(obj) {
-      const { firstName, lastName } = obj;
-      return `${firstName} ${lastName}`;
-    }
+// good
+function getFullName(obj) {
+    const { firstName, lastName } = obj;
+    return `${firstName} ${lastName}`;
+}
 
-    // best
-    function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
-    }
-    ```
+// best
+function getFullName({ firstName, lastName }) {
+    return `${firstName} ${lastName}`;
+}
+```
 
-  - [5.2](#5.2) <a name='5.2'></a> 对数组使用解构赋值。
+- [5.2](#5.2) <a name='5.2'></a> 对数组使用解构赋值。
 
-    ```javascript
-    const arr = [1, 2, 3, 4];
+```javascript
+const arr = [1, 2, 3, 4];
 
-    // bad
-    const first = arr[0];
-    const second = arr[1];
+// bad
+const first = arr[0];
+const second = arr[1];
 
-    // good
-    const [first, second] = arr;
-    ```
+// good
+const [first, second] = arr;
+```
 
-  - [5.3](#5.3) <a name='5.3'></a> 需要回传多个值时，使用对象解构，而不是数组解构。 jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
-  
-  > 为什么？增加属性或者改变排序不会改变调用时的位置。
+- [5.3](#5.3) <a name='5.3'></a> 需要回传多个值时，使用对象解构，而不是数组解构。 jscs: [`disallowArrayDestructuringReturn`](http://jscs.info/rule/disallowArrayDestructuringReturn)
 
-    ```javascript
-    // bad
-    function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
-    }
+> 为什么？增加属性或者改变排序不会改变调用时的位置。
 
-    // 调用时需要考虑回调数据的顺序。
-    const [left, __, top] = processInput(input);
+```javascript
+// bad
+function processInput(input) {
+    // then a miracle occurs
+    return [left, right, top, bottom];
+}
 
-    // good
-    function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
-    }
+// 调用时需要考虑回调数据的顺序。
+const [left, __, top] = processInput(input);
 
-    // 调用时只选择需要的数据
-    const { left, right } = processInput(input);
-    ```
+// good
+function processInput(input) {
+    // then a miracle occurs
+    return { left, right, top, bottom };
+}
+
+// 调用时只选择需要的数据
+const { left, right } = processInput(input);
+```
 
 
 **[⬆ 返回目录](#table-of-contents)**
