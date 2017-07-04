@@ -2,8 +2,14 @@
 
 **基于[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)的javascript代码规范**
 
-
 本文是[完整代码规范建议](airbnb.md)的**子集**，提及内容为`eslint`可检查部分。
+
+本文规则分为两类：
+
+- 强制：不符合规范 => `eslint error`
+- 建议：不符合规范 => `eslint warning`
+
+建议通读完整规范，获得更好的代码书写指导建议。
 
 修改的部分会以`[modified]`标注，无此说明的即与原文规约相同。
 

@@ -1,8 +1,8 @@
-# Waimai Business Platform JavaScript Style Guide() {
+# Airbnb JavaScript Style Guide() {
 
-**基于[Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)的javascript代码规范**
+以下是完整的[Airbnb Javascript Style Guide](https://github.com/airbnb/javascript)的中文翻译。
 
-修改的部分会以`[modified]`标注，无此说明的即与Airbnb的规约相同。
+对应源repo的commit至[2666db5](https://github.com/airbnb/javascript/commit/2666db559dc0ef41887a1138cff4f59b3879892a)
 
 <a name="table-of-contents"></a>
 ## 目录
