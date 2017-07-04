@@ -597,15 +597,22 @@
 - [7.1](#7.1) <a name='7.1'></a> 使用具名函数代替函数声明。 eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
   > 为什么？因为函数声明会把函数提升(hoisted), 这样易使函数在定义前被引用。这会影响可读性和可维护性。如果一个函数的定义很长或很复杂，会干扰对文件剩余部分的理解，更好的方式是将它抽象在它自己的模块中。别忘了给函数表达式命名 - 匿名函数会使得在错误调用栈中定位问题变得困难。([讨论](https://github.com/airbnb/javascript/issues/794))
-
+  
   ```javascript
   // bad
+  function foo() {
+    // ...
+  }
+
+  // bad
   const foo = function () {
+    // ...
   };
 
   // good
-  function foo() {
-  }
+  const foo = function bar() {
+    // ...
+  };
   ```
 
 <a name="functions--iife"></a><a name="7.2"></a>
