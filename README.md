@@ -6,9 +6,9 @@
 
 补充规范：
 
-1. [JSX相关规范](#jsx.md)
-2. [React相关规范](#react.md)
-3. [React Native相关规范](#react-native.md)
+1. [JSX相关规范](jsx.md)
+2. [React相关规范](react.md)
+3. [React Native相关规范](react-native.md)
 
 本文规则分为三类：
 
