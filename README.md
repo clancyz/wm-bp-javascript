@@ -254,11 +254,11 @@
 
 <a name="strings--eval"></a><a name="6.5"></a>
 
-- [6.4](#strings--eval) **[强制]** 不要对字符串使用 `eval()`，会导致一系列问题。 eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+- [6.4](#strings--eval) **[强制] 不要对字符串使用 `eval()`，会导致一系列问题。** eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
 <a name="strings--escaping"></a>
 
-- [6.5](#strings--escaping)  `[modified]`**[建议 / off] 不要对字符串使用不必要的escape操作。** eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+- [6.5](#strings--escaping)  `[modified]`   **[建议 / off] 不要对字符串使用不必要的escape操作。**  eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
   > 为什么？ 反斜杠会影响可读性，仅在必须的时候使用它。
 
@@ -276,7 +276,7 @@
 <a name="functions"></a>
 ## 函数
 
-- [7.1](#7.1) <a name='7.1'></a> `[modified]` ** [建议 / off] 使用具名函数代替函数声明。 ** eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
+- [7.1](#7.1) <a name='7.1'></a> `[modified]`  **[建议 / off] 使用具名函数代替函数声明。** eslint: [`func-style`](http://eslint.org/docs/rules/func-style) jscs: [`disallowFunctionDeclarations`](http://jscs.info/rule/disallowFunctionDeclarations)
 
   > 为什么？因为函数声明会把函数提升(hoisted), 这样易使函数在定义前被引用。这会影响可读性和可维护性。如果一个函数的定义很长或很复杂，会干扰对文件剩余部分的理解，更好的方式是将它抽象在它自己的模块中。别忘了给函数表达式命名 - 匿名函数会使得在错误调用栈中定位问题变得困难。([讨论](https://github.com/airbnb/javascript/issues/794))
 
@@ -348,7 +348,7 @@
 
 <a name="functions--signature-spacing"></a><a name="7.11"></a>
 
-- [7.11](#functions--signature-spacing)  **[强制]  在函数签名中使用空格。 ** eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+- [7.11](#functions--signature-spacing)  **[强制]  [强制] 在函数签名中使用空格。** eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
 
   > 为什么？保持一致性是最佳实践， 另外如果在添加或删除名称时也不应增加/删除空格。
 
@@ -1019,7 +1019,7 @@
 
 ## 注释
 
-- [18.3](#comments--spaces)  **[强制] 所有注释开头加一个空格，增加可读性。**eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+- [18.3](#comments--spaces)  **[强制] 所有注释开头加一个空格，增加可读性。** eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
   ```javascript
   // bad
@@ -1080,7 +1080,7 @@
   }
   ```
 
-- [19.2](#19.2) <a name='19.2'></a>  **[强制] 在花括号前放一个空格。**eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
+- [19.2](#19.2) <a name='19.2'></a>  **[强制] 在花括号前放一个空格。**   eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html) jscs: [`requireSpaceBeforeBlockStatements`](http://jscs.info/rule/requireSpaceBeforeBlockStatements)
 
   ```javascript
   // bad
@@ -1166,7 +1166,7 @@
 
 - [19.6](#19.6) <a name='19.6'></a> **[强制] 在使用长方法链时进行缩进。使用前面的点 `.` 强调这是方法调用而不是新语句。**  eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
-> 译注：当链式超过4个之后使用换行。
+  > 译注：当链式超过4个之后使用换行。
 
   ```javascript
   // bad
@@ -1241,7 +1241,7 @@
 
 <a name="whitespace--in-parens"></a><a name="18.9"></a>
 
-- [19.9](#whitespace--in-parens)  **[强制] 不要在括号前后加入空格。**eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
+- [19.9](#whitespace--in-parens)  **[强制] 不要在括号前后加入空格。** eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html) jscs: [`disallowSpacesInsideParentheses`](http://jscs.info/rule/disallowSpacesInsideParentheses)
 
   ```javascript
   // bad
@@ -1293,7 +1293,7 @@
 
 <a name="whitespace--max-len"></a><a name="18.12"></a>
 
-- [19.12](#whitespace--max-len)  **[强制] 避免一行超过100个字符。**备注：每个如上[above](#strings--line-length)的长字符串 可以不遵循这条规则。 eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
+- [19.12](#whitespace--max-len)  **[强制] 避免一行超过100个字符。** 备注：每个如上[above](#strings--line-length)的长字符串 可以不遵循这条规则。 eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html) jscs: [`maximumLineLength`](http://jscs.info/rule/maximumLineLength)
 
   > 为什么？这样做可以增加可读性和可维护性。
 
@@ -1328,7 +1328,7 @@
 <a name="commas"></a>
 ## 逗号
 
-- [20.1](#20.1) <a name='20.1'></a>  **[强制] 行首逗号：不需要。**eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
+- [20.1](#20.1) <a name='20.1'></a>  **[强制] 行首逗号：不需要。** eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html) jscs: [`requireCommaBeforeLineBreak`](http://jscs.info/rule/requireCommaBeforeLineBreak)
 
   ```javascript
   // bad
@@ -1486,7 +1486,7 @@
   }
   ```
 
-- [23.2](#23.2) <a name='23.2'></a>  **[强制] 使用驼峰式命名对象、函数和实例。**eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
+- [23.2](#23.2) <a name='23.2'></a>  **[强制] 使用驼峰式命名对象、函数和实例。** eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase.html) jscs: [`requireCamelCaseOrUpperCaseIdentifiers`](http://jscs.info/rule/requireCamelCaseOrUpperCaseIdentifiers)
 
   ```javascript
   // bad
@@ -1499,7 +1499,7 @@
   function thisIsMyFunction() {}
   ```
 
-- [23.3](#23.3) <a name='23.3'></a>  **[强制] 使用帕斯卡式命名构造函数或类。**eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
+- [23.3](#23.3) <a name='23.3'></a>  **[强制] 使用帕斯卡式命名构造函数或类。** eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html) jscs: [`requireCapitalizedConstructors`](http://jscs.info/rule/requireCapitalizedConstructors)
 
 
   ```javascript
