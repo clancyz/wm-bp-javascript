@@ -4,6 +4,12 @@
 
 本文是[完整代码规范建议](airbnb.md)的**子集**，提及内容为`eslint`可检查部分。
 
+补充规范：
+
+1. [JSX相关规范](#jsx.md)
+2. [React相关规范](#react.md)
+3. [React Native相关规范](#react-native.md)
+
 本文规则分为三类：
 
 - **强制：** 不符合规范 => `eslint error`
