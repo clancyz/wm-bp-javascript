@@ -50,7 +50,7 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
   **安装`eslint`**
   
   ```bash
-  $ ext install vscode-eslint`
+  $ ext install vscode-eslint
   ```
 
   将`settings`目录对应的 [.eslintrc.js](https://github.com/clancyz/wm-bp-javascript/tree/master/settings/vue) 拷到开发目录下(这里以`vue`为例)
