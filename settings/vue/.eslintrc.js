@@ -45,7 +45,7 @@ module.exports = {
 
     // use rest parameters instead of arguments
     // http://eslint.org/docs/rules/prefer-rest-params
-    'prefer-rest-params': 'warn',
+    'prefer-rest-params': 'off',
 
     // suggest using the spread operator instead of .apply()
     // http://eslint.org/docs/rules/prefer-spread
@@ -65,5 +65,7 @@ module.exports = {
     // enforce one true brace style
     'brace-style': ['error', 'stroustrup', { allowSingleLine: false }],
 
+    // encourages use of dot notation whenever possible
+    'dot-notation': ['warn', { allowKeywords: true }],
   }
 }

@@ -315,7 +315,7 @@
 
 <a name="es6-rest"></a>
 
-- [7.6](#7.6) <a name='7.6'></a> `[modified]`**[建议 / warn] 不要使用 `arguments`。可以选择 rest 语法 `...` 替代。** eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+- [7.6](#7.6) <a name='7.6'></a> `[modified]`**[建议 / off] 不要使用 `arguments`。可以选择 rest 语法 `...` 替代。** eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
 
   > 为什么？使用 `...` 能明确你要传入的参数。另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组。
 
@@ -435,38 +435,6 @@
   ```
 
 <a name="functions--signature-invocation-indentation"></a>
-
-- [7.15](#functions--signature-invocation-indentation)  **[强制] 多行签名或调用的函数， 应该和其他多行列表一样保持缩进：每项都占一行，最后一项也应有逗号。** 
-
-  ```javascript
-  // bad
-  function foo(bar,
-                  baz,
-                  quux) {
-      // ...
-  }
-
-  // good
-  function foo(
-      bar,
-      baz,
-      quux,
-  ) {
-      // ...
-  }
-
-  // bad
-  console.log(foo,
-      bar,
-      baz);
-
-  // good
-  console.log(
-      foo,
-      bar,
-      baz,
-  );
-  ```
 
 **[⬆ 返回目录](#table-of-contents)**
 
@@ -849,7 +817,7 @@
 <a name="properties"></a>
 ## 属性
 
-- [12.1](#12.1) <a name='12.1'></a>  **[强制] 使用 `.` 来访问对象的属性。** eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
+- [12.1](#12.1) <a name='12.1'></a>  **[建议 / warn] 使用 `.` 来访问对象的属性。** eslint: [`dot-notation`](http://eslint.org/docs/rules/dot-notation.html) jscs: [`requireDotNotation`](http://jscs.info/rule/requireDotNotation)
 
   ```javascript
   const luke = {
@@ -869,7 +837,7 @@
 <a name="variables"></a>
 ## 变量
 
-- [13.1](#13.1) <a name='13.1'></a> **[强制] 一直使用 `const` 来声明变量，如果不这样做就会产生全局变量。** 我们需要避免全局命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。（译注：全局，global 亦有全球的意思。地球队长的责任是保卫地球环境，所以他警告我们不要造成「全球」污染。）eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
+- [13.1](#13.1) <a name='13.1'></a> **[强制] 一直使用 `const` 或 `let` 来声明变量，如果不这样做就会产生全局变量。** 我们需要避免全局命名空间的污染。[地球队长](http://www.wikiwand.com/en/Captain_Planet)已经警告过我们了。（译注：全局，global 亦有全球的意思。地球队长的责任是保卫地球环境，所以他警告我们不要造成「全球」污染。）eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef) [`prefer-const`](http://eslint.org/docs/rules/prefer-const)
 
 
   ```javascript
@@ -880,7 +848,7 @@
   const superPower = new SuperPower();
   ```
 
-- [13.2](#13.2) <a name='13.2'></a>  **[强制] 使用 `const` 声明每一个变量。** eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
+- [13.2](#13.2) <a name='13.2'></a>  **[强制] 使用 `const` 或 `let`  声明每一个变量。** eslint: [`one-var`](http://eslint.org/docs/rules/one-var.html) jscs: [`disallowMultipleVarDecl`](http://jscs.info/rule/disallowMultipleVarDecl)
 
   > 为什么？增加新变量将变的更加容易，而且你永远不用再担心调换错 `;` 跟 `,`。
 
