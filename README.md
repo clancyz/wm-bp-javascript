@@ -10,6 +10,8 @@
 2. [React相关规范](react.md)
 3. [React Native相关规范](react-native.md)
 
+IDE/构建工具/格式化工具配置请看[配置文档](settings.md)
+
 本文规则分为三类：
 
 - **强制：** 不符合规范 => `eslint error`
