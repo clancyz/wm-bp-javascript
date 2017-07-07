@@ -1,7 +1,7 @@
 # 配置文档
 
 <a name="table-of-contents"></a>
-## 目录
+# 目录
 
   1. [IDE配置](#ide-setting)
   1. [webpack配置](#webpack-setting)
@@ -13,9 +13,9 @@
 
 
 <a name="ide-setting"></a>
-## IDE配置
+# IDE配置
 
-### .editorconfig配置（通用）
+## .editorconfig配置（通用）
 
 在根目录建立一个`.editorconfig`文件：
 
@@ -31,13 +31,13 @@ insert_final_newline = true
 end_of_line = lf
 ```
 
-### 安装全局依赖（通用）
+## 安装全局依赖（通用）
 
 ```bash
 $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html eslint-plugin-import
 ```
 
-### VSCODE
+## VSCODE
 
   **安装.editorconfig支持**
 
@@ -68,7 +68,7 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
   ```
 
 
-### Sublime Text 3
+## Sublime Text 3
 
   Sublime Text 2版本，推荐升级到3
 
