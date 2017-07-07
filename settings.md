@@ -90,6 +90,9 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
 
   附SublimeLinter-eslint地址：https://github.com/roadhump/SublimeLinter-eslint
 
+  **安装ESLint-Formatter**
+
+  详细安装和配置请见[原repo](https://github.com/TheSavior/ESLint-Formatter), 也可以达到format on save的效果。
 
 
 **[⬆ 返回目录](#table-of-contents)**
