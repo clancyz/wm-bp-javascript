@@ -48,7 +48,7 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
   ```
 
   **安装`eslint`**
-  
+
   ```bash
   $ ext install vscode-eslint
   ```
@@ -57,13 +57,16 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
 
   **配置IDE**
 
-  参考[这里](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), 一般只需要在VSCODE的设置中增加一行：
+  参考[这里](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), 一般只需要在VSCODE的设置中增加两行：
 
-  可以在保存时**自动格式化**
+  lint相关的文件，并可以在保存时**自动格式化**
 
   ```javascript
   {
-    "eslint.autoFixOnSave": true
+    "eslint.autoFixOnSave": true，
+    "eslint.validate": [
+        "javascript", "javascriptreact", "html","vue"
+    ]
   }
   ```
 
@@ -81,7 +84,7 @@ $ npm i -g eslint eslint-config-airbnb-base babel-eslint eslint-plugin-html esli
   同上方式，安装`sublimelinter`, 回车安装
 
   **安装SublimeLinter-contrib-eslint**
-  
+
   同上方式，安装`SublimeLinter-contrib-eslint`
 
   将`settings`目录对应的 [.eslintrc.js](https://github.com/clancyz/wm-bp-javascript/tree/master/settings/vue) 拷到开发目录下(这里以`vue`为例)
